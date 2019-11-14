@@ -1,0 +1,40 @@
+<h3> <span class="badge badge-dark">Liste Des Objets</span></h3>
+<table class="table table-striped">
+    <thead>
+        <th>Nom</th>
+        <th>Emplacement</th>
+        <th>Status</th>
+        <th>Connexion</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let objet of test">
+            <td>{{objet.nom}}</td>
+            <td>{{objet.emplacement}}</td>
+            <td><a href="#" *ngIf="objet.status===false" class="badge badge-danger">éteint</a>
+                <a href="#" *ngIf="objet.status===true" class="badge badge-success">Allumé</a>
+            </td>
+            <td><a href="#" *ngIf="objet.estConnecte===false" class="badge badge-warning">Déconnecté</a>
+                <a href="#" *ngIf="objet.estConnecte===true" class="badge badge-info">Conncté</a>
+            </td>
+            <td>
+                <div class="row">
+                    <div class="col-md-5">
+                        <button (click)="allumer(objet.id)"  *ngIf="objet.status===false" type="button" class="btn btn-link btn-sm">Allumer</button>
+                        <button  (click)="eteindre(objet.id)" *ngIf="objet.status===true" type="button" class="btn btn-link btn-sm">Eteindre</button>
+                    </div>
+                    <div class="col-md-5">
+                        <button (click)="connecter(objet.id)" *ngIf="objet.estConnecte===false" type="button" class="btn btn-link btn-sm">Connecter</button>
+                        <button (click)="deconnecter(objet.id)" *ngIf="objet.estConnecte===true" type="button" class="btn btn-link btn-sm">Déconnecter</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <button style="margin-left: 8px;" class="btn btn-success" (click)="allumerTout()">Allumer Tout</button>
+    <button style="margin-left: 8px;" class="btn btn-danger" (click)="eteindreTout()">Eteintdre Tout</button>
+    <button style="margin-left: 8px;" class="btn btn-info" (click)="connecterTout()">Connecter Tout</button>
+    <button style="margin-left: 8px;" class="btn btn-warning" (click)="deconnecterTout()">Déconnecter Tout</button>
+</div>
