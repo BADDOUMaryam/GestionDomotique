@@ -21,32 +21,23 @@ statutDobjet:boolean;
 estConnecte:boolean;
 
 btnValue:string;
-allumerTout(){
-  //console.log("hiiii");
-  this.serviceGestionDomotique.allumerTout();
-}
-eteindreTout(){
-  this.serviceGestionDomotique.eteindreTout();
-}
-connecterTout(){
-  this.serviceGestionDomotique.connecterTout();
-}
-deconnecterTout(){
-  this.serviceGestionDomotique.deconnecterTout();
   
-}
 allumer(id:number){
-this.serviceGestionDomotique.allumerUn(id);
-}
-eteindre(id:number){
-  //console.log("hii");
-  this.serviceGestionDomotique.eteindreUn(id);
-}
-connecter(id:number){
-  this.serviceGestionDomotique.connecterUn(id);
-}
-deconnecter(id:number){
-  this.serviceGestionDomotique.deconncterUn(id);
-}
+  this.serviceGestionDomotique.allumerUn(id);
+  }
+  eteindre(id:number){
+    //console.log("hii");
+    this.serviceGestionDomotique.eteindreUn(id);
+  }
+  connecter(id:number){
+    this.serviceGestionDomotique.connecterUn(id);
+  }
+  deconnecter(id:number){
+    this.serviceGestionDomotique.deconncterUn(id);
+  }
+  geterror(){
+    //this.errors='Vérifier la Connexion des objets';
+    //return this.serviceDomotique.valider;
+  }
 
 }

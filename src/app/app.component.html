@@ -1,12 +1,17 @@
-
+<!-- 
 
 <div class="container">
+        <app-search></app-search>
         <div class="row" style="margin-top: 50px;">
           <div class="col-md-7" style="margin-top: 50px;">
+                <app-show-errors></app-show-errors>
                 <app-objet-domotique></app-objet-domotique>
+                <app-add-objet-domotique *ngIf="getAfficher()"></app-add-objet-domotique>
         </div>
         <div class="col-md-4 offset-1" style="margin-top: 50px;" >
-                <app-add-objet-domotique></app-add-objet-domotique>
+                <app-buttons></app-buttons>
               </div>
               </div>
-          </div>
+          </div> -->
+
+          <router-outlet></router-outlet>

@@ -11,7 +11,7 @@ import { ServiceGestionDomotique } from '../service/serviceGestionDomotique';
 export class AddObjetDomotiqueComponent implements OnInit {
 
   constructor(private serviceGestionDomotique:ServiceGestionDomotique) { }
-
+afficher:boolean=false;
   ngOnInit() {
   }
 onSubmit(form :NgForm){
@@ -20,8 +20,14 @@ const emplacement=form.value['emplacement'];
 
 const status=form.value['status'];
 this.serviceGestionDomotique.ajouterObjet(nom,emplacement);
+this.serviceGestionDomotique.hide();
 
 
+}
+
+getAfficher(){
+  console.log(this.serviceGestionDomotique.etat);
+  return this.serviceGestionDomotique.etat;
 }
 
 }

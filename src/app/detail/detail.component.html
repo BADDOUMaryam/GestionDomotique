@@ -1,0 +1,44 @@
+<div class="container">
+    <app-search></app-search>
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-7" style="margin-top: 50px;">
+            <app-show-errors></app-show-errors>
+            <table class="table">
+                <thead>
+                    <th>Nom</th>
+                    <th>Emplacement</th>
+                    <th>Status</th>
+                    <th>Connexion</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>{{nom}}</td>
+                        <td>{{emplacement}}</td>
+                        <td><a href="#" *ngIf="status===false"  class="badge badge-danger">éteint</a>
+                            <a href="#" *ngIf="status===true"  class="badge badge-success">Allumé</a>
+                        </td>
+                        <td><a href="#"  *ngIf="estConnecte===false" class="badge badge-warning">Déconnecté</a>
+                            <a href="# "  *ngIf="estConnecte===true"  class="badge badge-info">Conncté</a>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <button type="button" (click)="allumer(id)" *ngIf="status===false" class="btn btn-primary btn-sm">Allumer</button>
+                                    <button  type="button"  *ngIf="status===true" class="btn btn-primary btn-sm">Eteindre</button>
+                                </div>
+                                <div class="col-md-5">
+                                    <button type="button" (click)="connecter(id)" *ngIf="estConnecte===false" class="btn btn-primary btn-sm">Connecter</button>
+                                    <button  type="button" *ngIf="estConnecte===true" class="btn btn-primary btn-sm">Déconnecter</button>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+           
+    </div>
+  

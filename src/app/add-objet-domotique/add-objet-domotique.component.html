@@ -1,18 +1,21 @@
-
+<div *ngIf="getAfficher()" >
+  
 <form  (ngSubmit)="onSubmit(f);f.reset()" #f="ngForm">
      
-      <h3>  <span class="badge badge-dark">Ajouter Objet</span></h3>
-    <div class="form-group">
-      <label for="nomDObject">Nom</label>
-      <input type="text" class="form-control" name="nom" id="nom" aria-describedby="emailHelp" ngModel>
-    
-    </div>
-    <div class="form-group">
-      <label for="emplacementDobject">Emplacement</label>
-      <input type="text" class="form-control" name="emplacement" id="emplacement" ngModel>
-    </div>
-    
+    <h3>  <span class="badge badge-dark">Ajouter Objet</span></h3>
+  <div class="form-group">
+    <label for="nomDObject">Nom</label>
+    <input type="text" class="form-control" name="nom" id="nom" aria-describedby="emailHelp" ngModel>
   
-    <button id="ajouter" type="submit" class="btn btn-primary">Ajouter</button>
-    
-  </form>
+  </div>
+  <div class="form-group">
+    <label for="emplacementDobject">Emplacement</label>
+    <input type="text" class="form-control" name="emplacement" id="emplacement" ngModel>
+  </div>
+  
+
+  <button id="ajouter" type="submit" class="btn btn-primary">Ajouter</button>
+  
+</form>
+
+</div>

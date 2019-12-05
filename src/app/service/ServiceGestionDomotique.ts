@@ -1,4 +1,11 @@
 export class ServiceGestionDomotique{
+  errors:number;
+  valider:boolean=false;
+  etat:boolean=false;
+initialiser(){
+  this.valider=false;
+}
+    
     objets=[
         {
           id:1,
@@ -43,37 +50,92 @@ export class ServiceGestionDomotique{
 
       }
       allumerTout(){
+ this.initialiser();
         for(let objet of this.objets){
-          objet.status=true;
+          if(objet.estConnecte==false){
+            this.errors=-1;
+            this.valider=true;
+          }
+          else{
+            objet.status=true;
+  
+          }
+        
         }
       }
       eteindreTout(){
+        this.initialiser();
         for(let objet of this.objets){
-          objet.status=false;
+          if(objet.estConnecte==false){
+            this.errors=-1;
+            this.valider=true;
+          }
+          else{
+            objet.status=false;
+          }
         }
       }
       connecterTout(){
+        this.initialiser();
         for(let objet of this.objets){
           objet.estConnecte=true;
         }
       }
       deconnecterTout(){
+        this.initialiser();
         for(let objet of this.objets){
           objet.estConnecte=false;
         }
       }
       allumerUn(id:number){
-       this.objets[id-1].status=true;
+        this.initialiser();
+        if(this.objets[id-1].estConnecte==false){
+          this.errors=-1;
+          this.valider=true;
+         
 
+        }else{
+          this.objets[id-1].status=true;
+          this.errors=1;
+        }
 
       }
       connecterUn(id:number){
+       this.initialiser();
         this.objets[id-1].estConnecte=true;
       }
       deconncterUn(id:number){
+        this.initialiser();
         this.objets[id-1].estConnecte=false;
       }
       eteindreUn(id:number){
-        this.objets[id-1].status=false;
+       this.initialiser();
+        
+        if(this.objets[id-1].estConnecte==false){
+          this.errors=-1;
+          this.valider=true;
+         
+
+        }else{
+          this.objets[id-1].status=false;
+          this.errors=1;
+        }
+      }
+      afficher(){
+       //this.etat=true;
+        if(this.etat==true){
+          this.etat=false
+        }
+        else{
+          this.etat=true;
+        }
+
+      }
+      hide(){
+        this.etat=false;
+      }
+      getObjet(id: number) {
+        for(const ob of this.objets)
+          if(ob.id === id) {return ob; }
       }
 }
